@@ -14,6 +14,12 @@ export class OdooMPlay extends Component {
         onMounted(() => {
             const el = this.dosRef.el;
 
+            // Cargar js-dos.css SOLO en este contenedor para no afectar Odoo
+            const link = document.createElement('link');
+            link.rel = 'stylesheet';
+            link.href = '/odoom/static/lib/js-dos/js-dos.css';
+            el.parentElement.appendChild(link);
+
             if (typeof window.Dos !== "function") {
                 console.error("js-dos no cargó. Revisa assets (js-dos.js) y cache.");
                 el.innerHTML = `<div style="color:white;padding:16px;text-align:center;margin-top:50px;">
@@ -34,7 +40,15 @@ export class OdooMPlay extends Component {
                 console.log("Iniciando js-dos v17 con DOOM...");
                 const dosInstance = window.Dos(el, {
                     url: "/odoom/static/jsdos/doom-working.jsdos",
+                    autolock: false,
                 });
+                
+                // Prevenir que js-dos expanda el contenedor
+                el.style.maxWidth = '100%';
+                el.style.maxHeight = '100%';
+                el.style.overflow = 'hidden';
+                el.style.contain = 'layout size';
+                
                 console.log("✓ Dos() ejecutado correctamente:", dosInstance);
             } catch (error) {
                 console.error("❌ Error al inicializar js-dos:", error);

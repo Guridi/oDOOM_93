@@ -11,8 +11,8 @@
     ],
     "assets": {
         "web.assets_backend": [
-            "odoom/static/lib/js-dos/js-dos.css",
             "odoom/static/lib/js-dos/js-dos.js",
+            "odoom/static/src/client_action/odoom_styles.css",
             "odoom/static/src/client_action/odoom_home.js",
             "odoom/static/src/client_action/odoom_home.xml",
             "odoom/static/src/client_action/odoom_play.js",
