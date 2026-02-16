@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Create DOOM Bundle</title>
+    <script src="lib/js-dos/js-dos.js"></script>
+</head>
+<body>
+    <h1>Creating DOOM bundle...</h1>
+    <script>
+    (async () => {
+        const bundle = await emulators.bundle();
+        
+        // Configuración de DOSBox
+        bundle.dosboxConf = `
+[autoexec]
+@echo off
+mount c .
+c:
+cd doom
+doom.exe -file freedoom1.wad
+`.trim();
+        
+        // Descargar FreeDoom desde el sistema
+        const wadResponse = await fetch('/odoom/static/src/doom/freedoom1.wad');
+        const wadData = await wadResponse.arrayBuffer();
+        
+        // Descargar DOOM.EXE (shareware)
+        const doomResponse = await fetch('https://js-dos.com/cdn/upload/DOOM-@evilution.zip');
+        const doomZip = await doomResponse.arrayBuffer();
+        
+        // Extraer y agregar archivos
+        bundle.extract(URL.createObjectURL(new Blob([doomZip])));
+        
+        // Agregar el WAD de FreeDoom
+        // ... necesitamos la API correcta para esto
+        
+        const uint8Array = await bundle.toUint8Array();
+        const blob = new Blob([uint8Array], { type: 'application/octet-stream' });
+        const url = URL.createObjectURL(blob);
+        
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = 'doom.jsdos';
+        a.click();
+        
+        document.body.innerHTML = '<h1>Bundle created! Check your downloads.</h1>';
+    })();
+    </script>
+</body>
+</html>

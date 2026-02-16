@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<templates xml:space="preserve">
+  <t t-name="odoom.Home">
+    <div style="padding: 16px;">
+      <h1 style="margin: 0 0 8px 0;">OdooM</h1>
+      <div style="opacity:.7; margin-bottom: 16px;">
+        Enter at your own risk. (With permissions.)
+      </div>
+
+      <div style="display:flex; gap:12px; flex-wrap:wrap;">
+        <button class="btn btn-primary" t-on-click="onPlay">Play</button>
+      </div>
+    </div>
+  </t>
+</templates>
