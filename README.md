@@ -4,7 +4,7 @@
 [![Odoo](https://img.shields.io/badge/Odoo-18.0-purple.svg)](https://www.odoo.com/)
 [![js-dos](https://img.shields.io/badge/js--dos-v17.0.2-orange.svg)](https://js-dos.com/)
 
-A proof-of-concept Odoo module that embeds DOOM (the classic 1993 FPS game) directly into the Odoo backend using WebAssembly and js-dos emulator.
+A proof-of-concept Odoo module that embeds DOOM 93 directly into the Odoo backend using WebAssembly and js-dos emulator.
 
 ## 🎯 Features
 
@@ -16,11 +16,7 @@ A proof-of-concept Odoo module that embeds DOOM (the classic 1993 FPS game) dire
 
 ## 🚀 Why?
 
-Because we can. This project demonstrates:
-- Integration of complex JavaScript libraries (js-dos) in Odoo
-- WebAssembly capabilities within Odoo's framework
-- Custom client action development
-- Asset management in Odoo modules
+Yes
 
 ## 📋 Requirements
 
@@ -41,7 +37,7 @@ Because we can. This project demonstrates:
    ./odoo-bin -u odoom
    ```
 
-3. Go to Apps menu in Odoo and search for "OdooM"
+3. Go to Apps menu in Odoo and search for "odoom"
 
 4. Click Install
 
@@ -132,24 +128,6 @@ doom.exe
     jsdos.writestr('.jsdos/jsdos.json', '{"version": "8"}')
 ```
 
-## 🐛 Troubleshooting
-
-### Blank Screen
-- Check browser console for errors
-- Verify that `doom-working.jsdos` exists in `static/jsdos/`
-- Clear browser cache (Ctrl+Shift+R)
-- Update the module in Odoo
-
-### js-dos Not Loading
-- Check that `static/lib/js-dos/js-dos.js` exists
-- Verify asset declarations in `__manifest__.py`
-- Restart Odoo server and update module
-
-### Game Not Starting
-- Verify the `.jsdos` bundle contains DOOM.EXE
-- Check browser console for loading errors
-- Try with `digger.jsdos` to test if js-dos works
-
 ## 📜 License
 
 This module is licensed under LGPL-3.
@@ -158,12 +136,12 @@ This module is licensed under LGPL-3.
 
 **js-dos** is © caiiiycuk, licensed under MIT.
 
-## 🙏 Credits
+## Credits
 
 - **id Software**: For creating DOOM (1993)
 - **caiiiycuk**: For js-dos emulator
 - **DOSBox Team**: For the DOS emulation
-- **Odoo S.A.**: For the amazing ERP framework
+- **Odoo S.A.**: For the ERP framework
 
 ## ⚠️ Disclaimer
 
@@ -177,13 +155,4 @@ Contributions are welcome! Feel free to:
 - Submit pull requests
 - Share your custom game bundles
 
-## 📞 Support
-
-For issues related to:
-- **Odoo module**: Open an issue in this repository
-- **js-dos**: Visit [js-dos.com](https://js-dos.com)
-- **DOOM**: Visit [doomworld.com](https://www.doomworld.com/)
-
 ---
-
-Made with ❤️ and a sense of humor. Because why not run DOOM in your ERP?
